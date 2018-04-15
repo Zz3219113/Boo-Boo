@@ -1,0 +1,133 @@
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+#include<stdlib.h>
+#include<algorithm>
+#include<malloc.h>
+#include<queue>
+using namespace std;
+int flag[510][510];
+struct node{
+	int a,b,step;
+};
+int main()
+{
+	int a,b,t,ta,tb;
+	loop:while(~scanf("%d%d%d",&a,&b,&t))
+	{
+		memset(flag,0,sizeof(flag));
+		node sta,pre,cur;
+		queue<node>q;
+		sta.a=0;
+		sta.b=0;
+		sta.step=0;
+		flag[0][0]=1;
+		q.push(sta);
+		while(!q.empty())
+		{
+			pre=q.front();
+			q.pop();
+			if(pre.a==t||pre.b==t)
+			{
+				printf("%d\n",pre.step);
+				goto loop;
+			}
+			if(pre.b+pre.a>b)//a->b
+			{
+				tb=b;
+				ta=pre.a+pre.b-b;
+				if(flag[ta][tb]==0)
+				{
+					cur.a=ta;
+					cur.b=tb;
+					cur.step=pre.step+1;
+					q.push(cur);
+					flag[ta][tb]=1;
+				}
+			}
+			else
+			{
+				tb=pre.a+pre.b;
+				ta=0;
+				if(flag[ta][tb]==0)
+				{
+					cur.a=ta;
+					cur.b=tb;
+					cur.step=pre.step+1;
+					q.push(cur);
+					flag[ta][tb]=1;
+				}
+			}
+			if(pre.b+pre.a>a)//b->a
+			{
+				tb=pre.b+pre.a-a;
+				ta=a;
+				if(flag[ta][tb]==0)
+				{
+					cur.a=ta;
+					cur.b=tb;
+					cur.step=pre.step+1;
+					q.push(cur);
+					flag[ta][tb]=1;
+				}
+			}
+			else
+			{
+				tb=0;
+				ta=pre.a+pre.b;
+				if(flag[ta][tb]==0)
+				{
+					cur.a=ta;
+					cur.b=tb;
+					cur.step=pre.step+1;
+					q.push(cur);
+					flag[ta][tb]=1;
+				}
+			}//a×°Âú
+			ta=a;
+			tb=pre.b;
+			if(flag[ta][tb]==0)
+			{
+				cur.a=ta;
+				cur.b=tb;
+				cur.step=pre.step+1;
+				q.push(cur);
+				flag[ta][tb]=1;
+			}
+			//b×°Âú
+			tb=b;
+			ta=pre.a;
+			if(flag[ta][tb]==0)
+			{
+				cur.a=ta;
+				cur.b=tb;
+				cur.step=pre.step+1;
+				q.push(cur);
+				flag[ta][tb]=1;
+			}//aµ¹¿Õ
+			ta=0;
+			tb=pre.b;
+			if(flag[ta][tb]==0)
+			{
+				cur.a=ta;
+				cur.b=tb;
+				cur.step=pre.step+1;
+				q.push(cur);
+				flag[ta][tb]=1;
+			}
+			//bµ¹¿Õ
+			tb=0;
+			ta=pre.a;
+			if(flag[ta][tb]==0)
+			{
+				cur.a=ta;
+				cur.b=tb;
+				cur.step=pre.step+1;
+				q.push(cur);
+				flag[ta][tb]=1;
+			}
+		}
+		printf("impossible\n");
+	}
+	return 0;
+}

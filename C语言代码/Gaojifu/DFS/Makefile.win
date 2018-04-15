@@ -1,0 +1,52 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ../../新建文件夹/main.o ../../五子棋框架/源文件/createmoves.o ../../五子棋框架/源文件/define.o ../../五子棋框架/源文件/evaluate.o ../../五子棋框架/源文件/gameover.o ../../五子棋框架/源文件/makemove.o ../../五子棋框架/源文件/printchessboard.o ../../五子棋框架/源文件/searchmove.o ../../五子棋框架/源文件/start.o
+LINKOBJ  = ../../新建文件夹/main.o ../../五子棋框架/源文件/createmoves.o ../../五子棋框架/源文件/define.o ../../五子棋框架/源文件/evaluate.o ../../五子棋框架/源文件/gameover.o ../../五子棋框架/源文件/makemove.o ../../五子棋框架/源文件/printchessboard.o ../../五子棋框架/源文件/searchmove.o ../../五子棋框架/源文件/start.o
+LIBS     = -L"C:/Users/28407/Dev-Cpp/MinGW64/lib" -L"C:/Users/28407/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Users/28407/Dev-Cpp/MinGW64/include" -I"C:/Users/28407/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/28407/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Users/28407/Dev-Cpp/MinGW64/include" -I"C:/Users/28407/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/28407/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/28407/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 项目1.exe
+CXXFLAGS = $(CXXINCS) -Wextra -g3
+CFLAGS   = $(INCS) -Wextra -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../../新建文件夹/main.o: ../../新建文件夹/main.cpp
+	$(CPP) -c ../../新建文件夹/main.cpp -o ../../新建文件夹/main.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/createmoves.o: ../../五子棋框架/源文件/createmoves.cpp
+	$(CPP) -c ../../五子棋框架/源文件/createmoves.cpp -o ../../五子棋框架/源文件/createmoves.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/define.o: ../../五子棋框架/源文件/define.cpp
+	$(CPP) -c ../../五子棋框架/源文件/define.cpp -o ../../五子棋框架/源文件/define.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/evaluate.o: ../../五子棋框架/源文件/evaluate.cpp
+	$(CPP) -c ../../五子棋框架/源文件/evaluate.cpp -o ../../五子棋框架/源文件/evaluate.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/gameover.o: ../../五子棋框架/源文件/gameover.cpp
+	$(CPP) -c ../../五子棋框架/源文件/gameover.cpp -o ../../五子棋框架/源文件/gameover.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/makemove.o: ../../五子棋框架/源文件/makemove.cpp
+	$(CPP) -c ../../五子棋框架/源文件/makemove.cpp -o ../../五子棋框架/源文件/makemove.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/printchessboard.o: ../../五子棋框架/源文件/printchessboard.cpp
+	$(CPP) -c ../../五子棋框架/源文件/printchessboard.cpp -o ../../五子棋框架/源文件/printchessboard.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/searchmove.o: ../../五子棋框架/源文件/searchmove.cpp
+	$(CPP) -c ../../五子棋框架/源文件/searchmove.cpp -o ../../五子棋框架/源文件/searchmove.o $(CXXFLAGS)
+
+../../五子棋框架/源文件/start.o: ../../五子棋框架/源文件/start.cpp
+	$(CPP) -c ../../五子棋框架/源文件/start.cpp -o ../../五子棋框架/源文件/start.o $(CXXFLAGS)
